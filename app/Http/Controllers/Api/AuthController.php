@@ -76,8 +76,27 @@ class AuthController extends Controller
             ]);
         }
 
-
-
       
     }
+
+    public function logout(Request $request)
+{
+    // ตรวจสอบว่าผู้ใช้ล็อกอินผ่าน Sanctum แล้วหรือไม่
+    $user = $request->user();
+
+    if ($user) {
+        // ลบ token ปัจจุบันที่ผู้ใช้กำลังใช้งานอยู่
+        $user->currentAccessToken()->delete();
+
+        return response()->json([
+            'status_code' => 200,
+            'message' => 'Logged out successfully'
+        ]);
+    }
+
+    return response()->json([
+        'status_code' => 401,
+        'message' => 'Unauthorized'
+    ]);
+}
 }
