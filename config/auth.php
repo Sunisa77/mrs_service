@@ -36,11 +36,16 @@ return [
     */
 
     'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
+    'web' => [
+        'driver' => 'session',
+        'provider' => 'users',
     ],
+
+    'api' => [
+        'driver' => 'token', // หรือ 'sanctum' ถ้าใช้ Laravel Sanctum
+        'provider' => 'users',
+    ],
+],
 
     /*
     |--------------------------------------------------------------------------
