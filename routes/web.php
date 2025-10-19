@@ -9,38 +9,26 @@ use App\Models\notifications;
 use App\Http\Controllers\Machine02Controller;
 
 
-Route::get('/', function () {
+Route::get('/1', function () {
     return view('welcome');
 });
 
-Route::get('/show', function () {
+Route::get('/', function () {
+    return view('home');
+});
+
+Route::get('/show_machine', function () {
     $model = machines::all();
     return view('show_machine', compact('model'));
-});
+})->name('show_machine');
 
-Route::get('/tech', function () {
+Route::get('/show_technician', function () {
     $model = technicians::all();
-    $model2 = maintenance_records::all();
-    return view('show_technician', compact('model', 'model2'));
-});
+    return view('show_technician', compact('model'));
+})->name('show_technician');
 
-
-Route::get('/record', function () {
+Route::get('/show_record', function () {
     $model = maintenance_records::all();
     return view('show_record', compact('model'));
-});
-
-// Route::get('/show_machine', function () {
-//     $model = machines::all();
-//     return view('show_machine', compact('model'));
-// });
-
-// Route::get('/show', [MachineController::class,
-// 'index'])->name('show_machine');
-
-
-
-
-
-
+})->name('show_record');
 
