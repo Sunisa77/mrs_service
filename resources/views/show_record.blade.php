@@ -124,10 +124,13 @@
         <tbody>
             @forelse ($model as $item)
             <tr>
+             
                 <td data-label="รหัสการซ่อม">{{ $item->record_id }}</td>
                 <td data-label="รหัสเครื่องจักร">{{ $item->machine_id }}</td>
                 <td data-label="วันที่ซ่อม">{{ $item->maintenance_date }}</td>
+
                 {{-- <td data-label="รหัสช่างผู้ซ่อม">{{ $item->tech_id }}</td> --}}
+
                 <td data-label="ช่างผู้ซ่อม">{{ $item->technician->tech_name ?? '-' }}</td>
                 <td data-label="กำหนดซ่อมครั้งถัดไป">{{ $item->next_due_date }}</td>
                 <td data-label="รายละเอียดการซ่อม">{{ $item->description }}</td>

@@ -20,7 +20,8 @@ Route::get('/show', function () {
 
 Route::get('/tech', function () {
     $model = technicians::all();
-    return view('show_technician', compact('model'));
+    $model2 = maintenance_records::all();
+    return view('show_technician', compact('model', 'model2'));
 });
 
 
