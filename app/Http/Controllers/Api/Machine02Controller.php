@@ -80,10 +80,6 @@ class Machine02Controller extends Controller
         $model->delete();
         return response()->json(['message' => 'Deleted successfully'], 200);  
 
-
-        // $machine = machines::findOrFail($machine_id);
-        // $machine->delete();
-        // return response()->json(null, 204);
     }
 
     //แก้ข้อมูลบางส่วน
